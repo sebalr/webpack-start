@@ -7,7 +7,7 @@ class HelloWorldButton {
     const button = document.createElement('button');
     button.innerHTML = 'Hello world';
     button.classList.add('hello-world-button');
-    button.onclick = function () {
+    button.onclick = () => {
       const p = document.createElement('p');
       p.innerHTML = 'Hello world';
       p.classList.add(this.buttonCssClass);
