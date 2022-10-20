@@ -1,5 +1,4 @@
 const path = require('path');
-const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -11,7 +10,7 @@ module.exports = {
     publicPath: '',
     clean: true
   },
-  mode: 'none',
+  mode: 'production',
   module: {
     rules: [
       {
@@ -31,11 +30,10 @@ module.exports = {
     ]
   },
   plugins: [
-    new TerserPlugin(),
     new MiniCssExtractPlugin({ filename: 'styles.[contenthash].css' }),
     new HtmlWebpackPlugin({
       title: 'Hello world',
-      filename: 'subfolder/index.html',
+      filename: 'index.html',
       meta: {
         description: 'Test description'
       }

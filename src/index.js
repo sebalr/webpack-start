@@ -6,3 +6,4 @@ const heading = new Heading();
 
 heading.render();
 helloWorldButton.render();
+console.log(process.env.NODE_ENV);
