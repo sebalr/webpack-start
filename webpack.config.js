@@ -33,6 +33,12 @@ module.exports = {
   plugins: [
     new TerserPlugin(),
     new MiniCssExtractPlugin({ filename: 'styles.[contenthash].css' }),
-    new HtmlWebpackPlugin()
+    new HtmlWebpackPlugin({
+      title: 'Hello world',
+      filename: 'subfolder/index.html',
+      meta: {
+        description: 'Test description'
+      }
+    })
   ]
 };
