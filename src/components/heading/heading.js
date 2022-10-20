@@ -4,7 +4,7 @@ class Heading {
   render() {
     const h1 = document.createElement('h1');
     const body = document.querySelector('body');
-    h1.innerHTML = 'Webpak title';
+    h1.innerHTML = 'New webpak title';
     body.appendChild(h1);
   }
 }
