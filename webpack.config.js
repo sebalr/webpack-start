@@ -7,7 +7,8 @@ module.exports = {
   output: {
     filename: 'bundle[contenthash].js',
     path: path.resolve(__dirname, './dist'),
-    publicPath: 'dist/'
+    publicPath: 'dist/',
+    clean: true
   },
   mode: 'none',
   module: {
@@ -30,6 +31,6 @@ module.exports = {
   },
   plugins: [
     new TerserPlugin(),
-    new MiniCssExtractPlugin({ filename: 'styles.[contenthash.css' })
+    new MiniCssExtractPlugin({ filename: 'styles.[contenthash].css' })
   ]
 };
