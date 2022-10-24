@@ -40,7 +40,16 @@ module.exports = {
       filename: 'index.html',
       meta: {
         description: 'Test description'
-      }
+      },
+      chunks: ['hi'] // entry name
+    }),
+    new HtmlWebpackPlugin({
+      title: 'Roman',
+      filename: 'roman.html',
+      meta: {
+        description: 'Test description roman'
+      },
+      chunks: ['roman']
     })
   ]
 };
