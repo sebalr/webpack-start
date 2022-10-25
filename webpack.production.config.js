@@ -11,7 +11,7 @@ module.exports = {
   output: {
     filename: '[name].[contenthash].js', // name indicates entry keys
     path: path.resolve(__dirname, './dist'),
-    publicPath: '',
+    publicPath: '/static/',
     clean: true
   },
   mode: 'production',
