@@ -4,6 +4,6 @@ import Heading from './components/heading/heading';
 const helloWorldButton = new HelloWorldButton();
 const heading = new Heading();
 
-heading.render();
+heading.render('hw');
 helloWorldButton.render();
 console.log(process.env.NODE_ENV);
