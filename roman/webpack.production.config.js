@@ -3,11 +3,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: {
-    // key will be bundle name
-    hi: './src/index.js',
-    roman: './src/roman.js'
-  },
+  entry: './src/roman.js',
   output: {
     filename: '[name].[contenthash].js', // name indicates entry keys
     path: path.resolve(__dirname, './dist'),
@@ -41,20 +37,11 @@ module.exports = {
   plugins: [
     new MiniCssExtractPlugin({ filename: '[name].[contenthash].css' }),
     new HtmlWebpackPlugin({
-      title: 'Hello world',
-      filename: 'index.html',
-      meta: {
-        description: 'Test description'
-      },
-      chunks: ['hi'] // entry name
-    }),
-    new HtmlWebpackPlugin({
       title: 'Roman',
       filename: 'roman.html',
       meta: {
         description: 'Test description roman'
-      },
-      chunks: ['roman']
+      }
     })
   ]
 };

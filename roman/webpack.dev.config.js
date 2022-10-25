@@ -2,11 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: {
-    // key will be bundle name
-    hi: './src/index.js',
-    roman: './src/roman.js'
-  },
+  entry: './src/roman.js',
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, './dist'),
@@ -15,12 +11,12 @@ module.exports = {
   },
   mode: 'development',
   devServer: {
-    port: 9000,
+    port: 9002,
     static: {
       directory: path.resolve(__dirname, './dist')
     },
     devMiddleware: {
-      index: 'index.html',
+      index: 'roman.html',
       writeToDisk: true
     }
   },
@@ -44,17 +40,8 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Hello world',
-      filename: 'index.html',
-      chunks: ['hi'],
-      meta: {
-        description: 'Test description'
-      }
-    }),
-    new HtmlWebpackPlugin({
       title: 'Hello world two',
       filename: 'roman.html',
-      chunks: ['roman'],
       meta: {
         description: 'Test description'
       }
