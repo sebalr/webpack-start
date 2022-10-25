@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { ModuleFederationPlugin } = require('webpack').container;
 
 module.exports = {
   entry: './src/roman.js',
@@ -44,6 +45,12 @@ module.exports = {
       filename: 'roman.html',
       meta: {
         description: 'Test description'
+      }
+    }),
+    new ModuleFederationPlugin({
+      name: 'RomanApp',
+      remotes: {
+        HiApp: 'HiApp@http://localhost:9001/remoteEntry.js '
       }
     })
   ]

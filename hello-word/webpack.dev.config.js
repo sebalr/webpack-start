@@ -1,12 +1,13 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { ModuleFederationPlugin } = require('webpack').container;
 
 module.exports = {
   entry: './src/index.js',
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, './dist'),
-    publicPath: '',
+    publicPath: 'http://localhost:9001/',
     clean: true
   },
   mode: 'development',
@@ -36,6 +37,13 @@ module.exports = {
       filename: 'hi.html',
       meta: {
         description: 'Test description'
+      }
+    }),
+    new ModuleFederationPlugin({
+      name: 'HiApp',
+      filename: 'remoteEntry.js',
+      exposes: {
+        './HiButton': './src/components/hello-world/hello-world-button.js'
       }
     })
   ]

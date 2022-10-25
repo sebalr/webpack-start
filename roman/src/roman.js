@@ -5,3 +5,8 @@ const heading = new Heading();
 const romanImg = new RomanImg();
 heading.render('rm');
 romanImg.render();
+import('HiApp/HiButton').then((HiButton) => {
+  const HelloWorldButton = HiButton.default;
+  const helloWorldButton = new HelloWorldButton();
+  helloWorldButton.render();
+});
