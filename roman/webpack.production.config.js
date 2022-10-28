@@ -8,7 +8,7 @@ module.exports = {
   output: {
     filename: '[name].[contenthash].js', // name indicates entry keys
     path: path.resolve(__dirname, './dist'),
-    publicPath: '/static/',
+    publicPath: 'http://localhost:9002/',
     clean: true
   },
   mode: 'production',
@@ -46,8 +46,9 @@ module.exports = {
     }),
     new ModuleFederationPlugin({
       name: 'RomanApp',
-      remotes: {
-        HiApp: 'HiApp@http://localhost:9001/remoteEntry.js '
+      filename: 'remoteEntry.js',
+      exposes: {
+        './RomanPage': './src/components/roman-page/roman-page.js'
       }
     })
   ]

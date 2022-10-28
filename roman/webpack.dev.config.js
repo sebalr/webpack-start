@@ -7,7 +7,7 @@ module.exports = {
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, './dist'),
-    publicPath: '',
+    publicPath: 'http://localhost:9002/',
     clean: true
   },
   mode: 'development',
@@ -49,8 +49,9 @@ module.exports = {
     }),
     new ModuleFederationPlugin({
       name: 'RomanApp',
-      remotes: {
-        HiApp: 'HiApp@http://localhost:9001/remoteEntry.js '
+      filename: 'remoteEntry.js',
+      exposes: {
+        './RomanPage': './src/components/roman-page/roman-page.js'
       }
     })
   ]
