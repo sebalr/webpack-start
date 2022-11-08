@@ -3,48 +3,41 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { ModuleFederationPlugin } = require('webpack').container;
 
 module.exports = {
-  entry: './src/index.js',
+  entry: './src/dashboard.js',
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, './dist'),
-    publicPath: 'http://localhost:9001/',
+    publicPath: 'http://localhost:9000/',
     clean: true
   },
-  mode: 'development',
+  mode: 'production',
   devServer: {
-    port: 9001,
+    port: 9000,
     static: {
       directory: path.resolve(__dirname, './dist')
     },
     devMiddleware: {
-      index: 'hi.html',
+      index: 'dashboard.html',
       writeToDisk: true
     }
   },
   module: {
-    rules: [
-      {
-        test: /\.scss$/,
-        use: ['style-loader', 'css-loader', 'sass-loader']
-        // are executed rith to left
-        // compile sass, read css imports in js files, load styles to dom
-      }
-    ]
+    rules: []
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Hello world',
-      filename: 'hi.html',
+      title: 'Dashboard',
+      filename: 'dashboard.html',
       meta: {
         description: 'Test description'
       }
     }),
     new ModuleFederationPlugin({
-      name: 'HiApp',
-      filename: 'remoteEntry.js',
-      exposes: {
-        './HelloWorldPage':
-          './src/components/hello-world-page/hello-world-page.js'
+      name: 'Dashboard',
+      name: 'App',
+      remotes: {
+        HelloWorldApp: 'HiApp@http://localhost:9001/remoteEntry.js',
+        RomanApp: 'RomanApp@http://localhost:9002/remoteEntry.js'
       }
     })
   ]

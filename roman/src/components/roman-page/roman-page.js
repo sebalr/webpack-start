@@ -1,5 +1,5 @@
 import Heading from '../heading/heading';
-import RomanImg from '..  /roman-img/roman-img';
+import RomanImg from '../roman-img/roman-img';
 
 class RomanPage {
   render() {
@@ -9,3 +9,5 @@ class RomanPage {
     romanImg.render();
   }
 }
+
+export default RomanPage;

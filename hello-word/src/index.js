@@ -1,9 +1,5 @@
-import HelloWorldButton from './components/hello-world/hello-world-button';
-import Heading from './components/heading/heading';
+import HelloWorldPage from './components/hello-world-page/hello-world-page';
 
-const helloWorldButton = new HelloWorldButton();
-const heading = new Heading();
+const helloWorldPage = new HelloWorldPage();
 
-heading.render('hw');
-helloWorldButton.render();
-console.log(process.env.NODE_ENV);
+helloWorldPage.render();
