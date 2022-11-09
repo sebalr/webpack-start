@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { ModuleFederationPlugin } = require('webpack').container;
 
 module.exports = {
@@ -22,9 +23,17 @@ module.exports = {
     }
   },
   module: {
-    rules: []
+    rules: [
+      {
+        test: /\.scss$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
+        // are executed rith to left
+        // compile sass, read css imports in js files, load styles to dom
+      }
+    ]
   },
   plugins: [
+    new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
       title: 'Dashboard',
       filename: 'dashboard.html',
