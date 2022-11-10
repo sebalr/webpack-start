@@ -7,6 +7,12 @@ class RomanPage {
     const romanImg = new RomanImg();
     heading.render('Roman love');
     romanImg.render();
+
+    import('ImageCaptionApp/ImageCaption').then((ImageCaptionModule) => {
+      const ImageCaption = ImageCaptionModule.default;
+      const caption = new ImageCaption();
+      caption.render('test');
+    });
   }
 }
 

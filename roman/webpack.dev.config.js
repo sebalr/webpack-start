@@ -52,6 +52,9 @@ module.exports = {
       filename: 'remoteEntry.js',
       exposes: {
         './RomanPage': './src/components/roman-page/roman-page.js'
+      },
+      remotes: {
+        ImageCaptionApp: 'ImageCaption@http://localhost:9003/remoteEntry.js'
       }
     })
   ]
